@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_personal_expense_app/transaction.dart';
+import './transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,32 +20,45 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-@override
+  final List<Transaction> transactions = [
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'grocery',
+      amount: 24.12,
+      date: DateTime.now(),
+    ),
+  ];
+
+  @override
   Widget build(BuildContext context) {
- 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter App'),
-      ),
-      body: Column(
+        appBar: AppBar(
+          title: Text('Flutter App'),
+        ),
+        body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-           Container(
-             width: double.infinity,
-             child: Card(
-               color: Colors.blue,
-               child: Text("Card1"),
-               elevation: 5,
-             ),
-           ),
-           Card(
-             color: Colors.red,
-             child: Text("List of TX"),
-          ),
-        ],
-      
-     // This trailing comma makes auto-formatting nicer for build methods.
-    ));
+            Container(
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                child: Text("Card1"),
+                elevation: 5,
+              ),
+            ),
+            Card(
+              color: Colors.red,
+              child: Text("List of TX"),
+            ),
+          ],
+
+          // This trailing comma makes auto-formatting nicer for build methods.
+        ));
   }
 }
-
