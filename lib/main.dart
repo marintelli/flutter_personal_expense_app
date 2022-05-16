@@ -53,10 +53,39 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Column(
+              // 컬럼에 transactions 리스트에 있는 transaction 을 맵핑후 .toList()로 리스트 생성
               children: transactions.map((tx) {
                 return Card(
-                  child: Text(tx.title as String),
-                );
+                    child: Row(
+                  children: <Widget>[
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                      child: Text(
+                        tx.amount.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.purple),
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.purple, width: 2),
+                      ),
+                      padding: EdgeInsets.all(10),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          tx.title as String,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                        Text(tx.date.toString()),
+                      ],
+                    )
+                  ],
+                ));
               }).toList(),
             )
           ],
