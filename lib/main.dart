@@ -61,15 +61,26 @@ class MyHomePage extends StatelessWidget {
                     Container(
                       margin:
                           EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                      child: Text(tx.amount.toString()),
+                      child: Text(
+                        tx.amount.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.purple),
+                      ),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2),
-                          ),
-                          padding: EdgeInsets.all(10),
+                        border: Border.all(color: Colors.purple, width: 2),
+                      ),
+                      padding: EdgeInsets.all(10),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tx.title as String),
+                        Text(
+                          tx.title as String,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
                         Text(tx.date.toString()),
                       ],
                     )
