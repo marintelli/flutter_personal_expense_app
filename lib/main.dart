@@ -53,9 +53,17 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Column(
+              // 컬럼에 transactions 리스트에 있는 transaction 을 맵핑후 .toList()로 리스트 생성
               children: transactions.map((tx) {
                 return Card(
-                  child: Text(tx.title as String),
+                  child: Row(children: <Widget>[
+                    Container(child: Text(tx.amount.toString()),),
+                    Column(children: <Widget>[
+                      Text(tx.title as String),
+                      Text(tx.date.toString()),
+                     ],)
+
+                  ],)
                 );
               }).toList(),
             )
